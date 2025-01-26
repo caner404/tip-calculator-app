@@ -85,6 +85,7 @@ export function Calculator() {
                 role='radio'
                 key='custom'
                 id='custom%-tip'
+                aria-checked={isCustom}
                 onClick={() => setIsCustom(!isCustom)}
                 className='flex items-center justify-center flex-1 w-[110px] h-12 font-bold text-2xl px-3 py-2 hover:cursor-pointer bg-[#F3F9FA] text-[#547878]'
               >
