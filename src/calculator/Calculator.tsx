@@ -28,26 +28,19 @@ export function Calculator() {
     <div className=' bg-white py-8 sm:py-11 px-6 sm:px-0 sm:pl-12 sm:pr-8 rounded-tr-3xl rounded-tl-2xl sm:rounded-3xl flex flex-col sm:flex-row gap-5 max-w-full sm:max-w-[920px] h-full sm:h-fit'>
       <form className='flex flex-col gap-8 sm:gap-10 flex-1 px-2'>
         <div className='flex flex-col gap-2 text-left'>
-          <div className='flex justify-between items-center'>
-            <label
-              htmlFor='billInput'
-              className='text-[#5E7A7D] font-bold text-sm'
-            >
-              Bill
-            </label>
-            {bill <= 0 && <p className='text-[#E17457] font-bold text-base'>Can't be smaller then zero</p>}
-          </div>
-
+          <label
+            htmlFor='billInput'
+            className='text-[#5E7A7D] font-bold text-sm'
+          >
+            Bill
+          </label>
           <input
             id='billInput'
             type='number'
             aria-label='Bill'
             value={bill}
-            className={`bg-[#F3F9FA] py-2 p-4 text-[#00474B] font-bold text-2xl text-right rounded-sm border-2 focus:outline-none hover:cursor-pointer ${
-              bill <= 0
-                ? 'border-[#E17457] focus:border-[#E17457] hover:border-[#E17457]'
-                : 'border-transparent focus:border-[#26C2AE] hover:border-[#26C2AE] '
-            }`}
+            min='0'
+            className={`bg-[#F3F9FA] py-2 p-4 text-[#00474B] font-bold text-2xl text-right rounded-sm border-2 focus:outline-none hover:cursor-pointer border-transparent focus:border-[#26C2AE] hover:border-[#26C2AE] `}
             onChange={(e) => {
               setBill(Number(e.target.value));
             }}
@@ -109,14 +102,15 @@ export function Calculator() {
             >
               Number of People
             </label>
-            {numberOfPeople <= 0 && <p className='text-[#E17457] font-bold text-base'>Can't be smaller then zero</p>}
+            {numberOfPeople === 0 && <p className='text-[#E17457] font-bold text-base'>Can't be zero</p>}
           </div>
           <input
             id='numberOfPeople'
             type='number'
             aria-label='Number of People'
+            min='0'
             className={`bg-[#F3F9FA] py-2 p-4 text-[#00474B] font-bold text-2xl text-right rounded-sm border-2 focus:outline-none hover:cursor-pointer ${
-              numberOfPeople <= 0
+              numberOfPeople === 0
                 ? 'border-[#E17457] focus:border-[#E17457] hover:border-[#E17457]'
                 : 'border-transparent focus:border-[#26C2AE] hover:border-[#26C2AE] '
             }`}
