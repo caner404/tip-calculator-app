@@ -14,7 +14,7 @@ describe('Calculator', () => {
       expect(billInput).toHaveValue(100.25);
     });
     it('should render the different tip percentages', () => {
-      const percentages = ['5%', '10%', '15%', '25%', '50%', 'Custom'];
+      const percentages = ['5', '10', '15', '25', '50', 'Custom'];
       const tipPercentages = screen.getAllByRole('radio');
       percentages.forEach((percentage, index) => {
         expect(tipPercentages[index]).toHaveTextContent(percentage);
@@ -32,6 +32,7 @@ describe('Calculator', () => {
         }
       });
     });
+
     it('when clicked it should change the tip percentage', async () => {
       const defaultChecked = screen.getByRole('radio', { name: '15%' });
       const tenPercentTip = screen.getByRole('radio', { name: '10%' });
