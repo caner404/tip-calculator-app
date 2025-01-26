@@ -41,6 +41,16 @@ describe('Calculator', () => {
       expect(tenPercentTip.classList.contains('active')).toBe(true);
       expect(defaultChecked.classList.contains('active')).toBe(false);
     });
+
+    it('should be able to set a custom tip', async () => {
+      const customTip = screen.getByRole('radio', { name: 'Custom' });
+      await userEvent.click(customTip);
+
+      const customInput = screen.getByTestId('customTipInput');
+      await userEvent.type(customInput, '23');
+
+      expect(customInput).toHaveValue(23);
+    });
     it('should render a number of people input', async () => {
       const numberOfPeopleInput = screen.getByLabelText('Number of People');
       await userEvent.clear(numberOfPeopleInput);

@@ -72,6 +72,7 @@ export function Calculator() {
 
             {isCustom ? (
               <input
+                data-testid='customTipInput'
                 type='number'
                 className={`flex items-center justify-center flex-1 rounded-md w-[110px] h-12 font-bold text-2xl text-right px-3 py-2 hover:cursor-pointer bg-[#F3F9FA] text-[#547878]`}
                 onChange={(e) => {
