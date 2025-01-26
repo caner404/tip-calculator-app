@@ -25,7 +25,7 @@ export function Calculator() {
     setAmountPerPerson(amountPerPerson);
   }, [bill, numberOfPeople, checked]);
   return (
-    <div className=' bg-white py-8 sm:py-11 px-6 sm:px-0 sm:pl-12 sm:pr-8 rounded-tr-3xl rounded-tl-2xl sm:rounded-3xl flex flex-col sm:flex-row gap-5 max-w-full sm:max-w-[920px] h-full sm:h-fit'>
+    <main className=' bg-white py-8 sm:py-11 px-6 sm:px-0 sm:pl-12 sm:pr-8 rounded-tr-3xl rounded-tl-2xl sm:rounded-3xl flex flex-col sm:flex-row gap-5 max-w-full sm:max-w-[920px] h-full sm:h-fit'>
       <form className='flex flex-col gap-8 sm:gap-10 flex-1 px-2'>
         <div className='flex flex-col gap-2 text-left'>
           <label
@@ -152,6 +152,6 @@ export function Calculator() {
           Reset
         </button>
       </div>
-    </div>
+    </main>
   );
 }
