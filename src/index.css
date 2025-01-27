@@ -1,6 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import 'tailwindcss';
 
+@layer base {
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0 !important;
+  }
+
+  input[type='number'] {
+    -moz-appearance: textfield !important;
+  }
+}
+
 :root {
   font-family: 'Space Mono', system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

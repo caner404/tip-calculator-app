@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import { calculate } from '../helper';
+import dollar from '../assets/dollar.svg';
+import people from '../assets/people.svg';
 
 export function Calculator() {
   const percentages = [5, 10, 15, 25, 50];
@@ -34,17 +36,25 @@ export function Calculator() {
           >
             Bill
           </label>
-          <input
-            id='billInput'
-            type='number'
-            aria-label='Bill'
-            value={bill}
-            min='0'
-            className={`bg-[#F3F9FA] py-2 p-4 text-[#00474B] font-bold text-2xl text-right rounded-sm border-2 focus:outline-none hover:cursor-pointer border-transparent focus:border-[#26C2AE] hover:border-[#26C2AE] `}
-            onChange={(e) => {
-              setBill(Number(e.target.value));
-            }}
-          />
+          <div
+            className={`flex justify-between bg-[#F3F9FA] py-2 p-4 text-[#00474B] font-bold text-2xl rounded-sm border-2 hover:cursor-pointer border-transparent focus:border-[#26C2AE] hover:border-[#26C2AE] `}
+          >
+            <img
+              src={dollar}
+              alt='Dollar Icon'
+            />
+            <input
+              id='billInput'
+              type='number'
+              aria-label='Bill'
+              value={bill}
+              className='focus:outline-none text-right'
+              min='0'
+              onChange={(e) => {
+                setBill(Number(e.target.value));
+              }}
+            />
+          </div>
         </div>
 
         <div className='flex flex-col flex-1 text-left gap-4'>
@@ -105,21 +115,30 @@ export function Calculator() {
             </label>
             {numberOfPeople === 0 && <p className='text-[#E17457] font-bold text-base'>Can't be zero</p>}
           </div>
-          <input
-            id='numberOfPeople'
-            type='number'
-            aria-label='Number of People'
-            min='0'
-            className={`bg-[#F3F9FA] py-2 p-4 text-[#00474B] font-bold text-2xl text-right rounded-sm border-2 focus:outline-none hover:cursor-pointer ${
+
+          <div
+            className={`flex justify-between bg-[#F3F9FA] py-2 p-4 text-[#00474B] font-bold text-2xl rounded-sm border-2 focus:outline-none hover:cursor-pointer ${
               numberOfPeople === 0
                 ? 'border-[#E17457] focus:border-[#E17457] hover:border-[#E17457]'
                 : 'border-transparent focus:border-[#26C2AE] hover:border-[#26C2AE] '
             }`}
-            value={numberOfPeople}
-            onChange={(e) => {
-              setNumberOfPeople(Number(e.target.value));
-            }}
-          />
+          >
+            <img
+              src={people}
+              alt='people Icon'
+            />
+            <input
+              id='numberOfPeople'
+              type='number'
+              aria-label='Number of People'
+              min='0'
+              className='focus:outline-none text-right'
+              value={numberOfPeople}
+              onChange={(e) => {
+                setNumberOfPeople(Number(e.target.value));
+              }}
+            />
+          </div>
         </div>
       </form>
       <div
